@@ -1,6 +1,6 @@
-## About Ajax Whoops Debug
+## About Vue Whoops Debug Component
 
-Ajax debug for Laravel 5.5+ is a VUE Componenet pretty print Whoops handler for ajax error responses, auto handle information form error exceptions and user die dump responses to ajax requests.
+A Vue 2 ajax debug component for Laravel 5.5+, pretty print Whoops style handler for ajax error responses in Laravel, auto handle error exceptions and user die dump responses from ajax requests in a pretty print style display.
 
 Features live debug mode, iterate quickly through the debugging process of and ajax error untill the issue is resolved, automatic retries of your ajax request with the posted data, on an eventual success response the debug screen will auto close and your optional callback function will be called.
 
