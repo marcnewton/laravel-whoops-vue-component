@@ -1,5 +1,3 @@
-# laravel-vue-ajax-debug
-
 ## About Ajax Whoops Debug
 
 Ajax debug for Laravel 5.5+ is a VUE Componenet pretty print Whoops handler for ajax error responses, auto handle information form error exceptions and user die dump responses to ajax requests.
