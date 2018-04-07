@@ -20,20 +20,32 @@ Asuming that your project has retained the use of the original **layouts/app.bla
 
 ### Import SCSS
 
+```scss
+	@import "app/whoops";
+```
 
-### Add VUE Componenet
 
+### Adding Whoops VUE Componenet
+
+```javascript
+	var app = new Vue({
+		el: '#app',
+		components: {
+			'Whoops': require('./components/whoops/errors.vue')
+		}
+	});
+```
 
 ## How to use
 
 The **Whoops.handle** method takes two pramaters.
 
-**error**
-	The error handle object
+	**error**
+		The error handle object
 
-**callback**
-	An optional callback handler fallback.
-	If the error response is not an exception or dump then your callback should be your custom client facing UX handler, typically this would be your custom handler for laravel validation UX responses
+	**callback**
+		An optional callback handler fallback.
+		If the error response is not an exception or dump then your callback should be your custom client facing UX handler, typically this would be your custom handler for laravel validation UX responses
 
 ```javascript
 	axios.patch(url,data).then(response => {
