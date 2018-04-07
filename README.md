@@ -26,28 +26,28 @@ Asuming that your project has retained the use of the original **layouts/app.bla
 
 ## How to use
 
-    The **Whoops.handle** method takes two pramaters.
+The **Whoops.handle** method takes two pramaters.
 
-    **error**
-		The error handle object
-	
-	**callback**
-		An optional callback handler fallback.
-		If the error response is not an exception or dump then your callback should be your custom client facing UX handler, typically this would be your custom handler for laravel validation UX responses
+**error**
+	The error handle object
 
-	```javascript
-		axios.patch(url,data).then(response => {
+**callback**
+	An optional callback handler fallback.
+	If the error response is not an exception or dump then your callback should be your custom client facing UX handler, typically this would be your custom handler for laravel validation UX responses
 
-				// your success action here
+```javascript
+	axios.patch(url,data).then(response => {
 
-			}).catch(error => {
+			// your success action here
 
-			instance.$refs.Whoops.handle(error, function() {
+		}).catch(error => {
 
-				// your public facing fail action here
-				alert('Hello Guest, Sorry but the server encountered an Internal Server Error during the processing your request!');
+		instance.$refs.Whoops.handle(error, function() {
 
-			});
+			// your public facing fail action here
+			alert('Hello Guest, Sorry but the server encountered an Internal Server Error during the processing your request!');
 
 		});
-	```
+
+	});
+```
