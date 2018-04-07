@@ -1,0 +1,22 @@
+{
+    "name": "marcnewton/laravel-vue-ajax-debug",
+    "description": "A viewer basen on the Whoops error handler in Laravel to visualise the debugging of error exceptions and dumps for ajax calls using a VUE Componenet.",
+    "keywords": ["laravel","vue","debug","ajax","error","dump"],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/marcnewton/laravel-vue-ajax-debug/issues",
+        "source": "https://github.com/marcnewton/laravel-vue-ajax-debug"
+    },
+    "authors": [
+        {
+            "name": "Marc Newton",
+            "email": "code@marcnewton.co.uk"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "vue": "^2.5.7"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
