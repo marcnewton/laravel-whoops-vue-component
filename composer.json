@@ -1,11 +1,11 @@
 {
-    "name": "marcnewton/laravel-whoops-ajax-component",
+    "name": "marcnewton/laravel-whoops-vue-component",
     "description": "A visualiser basen on the Whoops error handler in Laravel for easy debugging of error exceptions and dumps for ajax calls using a VUE Componenet.",
     "keywords": ["laravel","vue","debug","ajax","error","dump"],
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/marcnewton/laravel-whoops-ajax-component/issues",
-        "source": "https://github.com/marcnewton/laravel-whoops-ajax-component"
+        "issues": "https://github.com/marcnewton/laravel-whoops-vue-component/issues",
+        "source": "https://github.com/marcnewton/laravel-whoops-vue-component"
     },
     "authors": [
         {
