@@ -11,55 +11,55 @@ Features live debug mode, iterate quickly through the debugging process of and a
 Asuming that your project has retained the use of the original **layouts/app.blade.php** layout template, Add the following inside of the APP div tag as follows:
 
 ```php
-	<div id="app">
-		@if(env('APP_DEBUG'))
-			<Whoops ref="Whoops"></Whoops>
-		@endif
-	</div>
+<div id="app">
+	@if(env('APP_DEBUG'))
+		<Whoops ref="Whoops"></Whoops>
+	@endif
+</div>
 ```
 
 ### Import SCSS
 
 ```scss
-	@import "app/whoops";
+@import "app/whoops";
 ```
 
 
 ### Adding Whoops VUE Componenet
 
 ```javascript
-	var app = new Vue({
-		el: '#app',
-		components: {
-			'Whoops': require('./components/whoops/errors.vue')
-		}
-	});
+var app = new Vue({
+	el: '#app',
+	components: {
+		'Whoops': require('./components/whoops/errors.vue')
+	}
+});
 ```
 
 ## How to use
 
 The **Whoops.handle** method takes two pramaters.
 
-	**error**
-		The error handle object
+#### Error
+The error handle object
 
-	**callback**
-		An optional callback handler fallback.
-		If the error response is not an exception or dump then your callback should be your custom client facing UX handler, typically this would be your custom handler for laravel validation UX responses
+#### Callback
+An optional callback handler fallback.
+If the error response is not an exception or dump then your callback should be your custom client facing UX handler, typically this would be your custom handler for laravel validation UX responses
 
 ```javascript
-	axios.patch(url,data).then(response => {
+axios.patch(url,data).then(response => {
 
-			// your success action here
+		// your success action here
 
-		}).catch(error => {
+	}).catch(error => {
 
-		instance.$refs.Whoops.handle(error, function() {
+	instance.$refs.Whoops.handle(error, function() {
 
-			// your public facing fail action here
-			alert('Hello Guest, Sorry but the server encountered an Internal Server Error during the processing your request!');
-
-		});
+		// your public facing fail action here
+		alert('Hello Guest, Sorry but the server encountered an Internal Server Error during the processing your request!');
 
 	});
+
+});
 ```
