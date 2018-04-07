@@ -4,8 +4,8 @@
     "keywords": ["laravel","vue","debug","ajax","error","dump"],
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/marcnewton/laravel-vue-ajax-debug/issues",
-        "source": "https://github.com/marcnewton/laravel-vue-ajax-debug"
+        "issues": "https://github.com/marcnewton/laravel-whoops-ajax-component/issues",
+        "source": "https://github.com/marcnewton/laravel-whoops-ajax-component"
     },
     "authors": [
         {
