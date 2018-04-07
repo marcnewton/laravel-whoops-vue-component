@@ -8,12 +8,14 @@ Features live debug mode, iterate quickly through the debugging process of and a
 
 ### Apps Layout blade
 
-Asuming that your project has retained the use of the original layouts/app.blade.php layout file, You should add the following inside of the APP div tag as follows:
+Asuming that your project has retained the use of the original **layouts/app.blade.php** layout template, Add the following inside of the APP div tag as follows:
 
 ```php
-	@if(env('APP_DEBUG'))
-		<Whoops ref="Whoops"></Whoops>
-	@endif
+	<div id="app">
+		@if(env('APP_DEBUG'))
+			<Whoops ref="Whoops"></Whoops>
+		@endif
+	</div>
 ```
 
 ### Import SCSS
@@ -23,3 +25,29 @@ Asuming that your project has retained the use of the original layouts/app.blade
 
 
 ## How to use
+
+    The **Whoops.handle** method takes two pramaters.
+
+    **error**
+		The error handle object
+	
+	**callback**
+		An optional callback handler fallback.
+		If the error response is not an exception or dump then your callback should be your custom client facing UX handler, typically this would be your custom handler for laravel validation UX responses
+
+	```javascript
+		axios.patch(url,data).then(response => {
+
+				// your success action here
+
+			}).catch(error => {
+
+			instance.$refs.Whoops.handle(error, function() {
+
+				// your public facing fail action here
+				alert('Hello Guest, Sorry but the server encountered an Internal Server Error during the processing your request!');
+
+			});
+
+		});
+	```
