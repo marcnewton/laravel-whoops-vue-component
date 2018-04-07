@@ -17,6 +17,9 @@
         "php": ">=7.0",
         "vue": "^2.5.7"
     },
+    "require-dev": {
+
+    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
