@@ -14,12 +14,12 @@
         }
     ],
     "require": {
-        "php": ">=7.0",
-        "vue": "^2.5.7"
+        "php": ">=7.0"
     },
     "require-dev": {
-
+        "vue": "^2.5.7",
+        "laravel-mix": "^1.0"
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": false
 }
