@@ -1,5 +1,5 @@
 {
-	"name": "laravel-whoops-vue",
+	"name": "laravel-vue-whoops",
 	"version": "0.0.1",
 	"description": "A visualiser based on the Whoops error handler in Laravel for easy debugging of error exceptions and dumps for ajax calls using a VUE Component.",
 	"author": {
