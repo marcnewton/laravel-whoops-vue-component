@@ -6,7 +6,7 @@ Features live debug mode, iterate quickly through the debugging process of and a
 
 ## Installation
 
-	composer require marcnewton/laravel-whoops-vue-component
+	npm install laravel-whoops-vue
 
 ### Apps Layout blade
 
@@ -23,7 +23,7 @@ Assuming that your project has retained the use of the original **layouts/app.bl
 ### Import SCSS
 
 ```scss
-@import "app/whoops";
+@import "~laravel-whoops-vue/sass/whoops";
 ```
 
 
@@ -33,14 +33,14 @@ Assuming that your project has retained the use of the original **layouts/app.bl
 var app = new Vue({
 	el: '#app',
 	components: {
-		'Whoops': require('./components/whoops/errors.vue')
+		'Whoops': require('laravel-whoops-vue')
 	}
 });
 ```
 
 ## How to use
 
-The **Whoops.handle** method takes two pramaters.
+The **Whoops.handle** method takes two parameters.
 
 #### Error
 The error handle object

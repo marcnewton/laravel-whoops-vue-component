@@ -20,6 +20,5 @@
 		"vue": "^2.5.0",
 		"laravel-mix": "^1.0"
 	},
-	"main": "js/components/errors.vue",
-	"sass": "sass/_whoops.scss"
+	"main": "js/components/errors.vue"
 }
