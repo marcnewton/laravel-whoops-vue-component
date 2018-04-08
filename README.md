@@ -8,7 +8,7 @@ Features live debug mode, iterate quickly through the debugging process of and a
 
 ## Installation
 
-	npm install laravel-whoops-vue
+	npm install laravel-vue-whoops
 
 ### Apps Layout blade
 
@@ -25,7 +25,7 @@ Assuming that your project has retained the use of the original **layouts/app.bl
 ### Import SCSS
 
 ```scss
-@import "~laravel-whoops-vue/sass/whoops";
+@import "~laravel-vue-whoops/sass/whoops";
 ```
 
 
@@ -35,7 +35,7 @@ Assuming that your project has retained the use of the original **layouts/app.bl
 var app = new Vue({
 	el: '#app',
 	components: {
-		'Whoops': require('laravel-whoops-vue')
+		'Whoops': require('laravel-vue-whoops')
 	}
 });
 ```
