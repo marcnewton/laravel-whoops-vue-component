@@ -4,6 +4,8 @@ A Vue 2 ajax debug component for Laravel 5.5+, pretty print Whoops style handler
 
 Features live debug mode, iterate quickly through the debugging process of and ajax error untill the issue is resolved, automatic retries of your ajax request with the posted data, on an eventual success response the debug screen will auto close and your optional callback function will be called.
 
+[![Video Demo](https://img.youtube.com/vi/n0U5a4S3crQ/0.jpg)](https://youtu.be/n0U5a4S3crQ "Video Demo")
+
 ## Installation
 
 	npm install laravel-whoops-vue
