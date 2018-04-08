@@ -16,9 +16,7 @@ Assuming that your project has retained the use of the original **layouts/app.bl
 
 ```php
 <div id="app">
-	@if(env('APP_DEBUG'))
-		<Whoops ref="Whoops"></Whoops>
-	@endif
+	<Whoops ref="Whoops"></Whoops>
 </div>
 ```
 
@@ -29,15 +27,31 @@ Assuming that your project has retained the use of the original **layouts/app.bl
 ```
 
 
-### Adding Whoops VUE Componenet
+### Adding Whoops VUE Component
+
+To register the Whoops component globally place the line below directly after where vue is imported ```import Vue from 'vue';```
 
 ```javascript
-var app = new Vue({
+Vue.component('Whoops', require('laravel-vue-whoops'));
+```
+
+Example:
+
+```javascript
+import Vue from 'vue';
+
+Vue.component('Whoops', require('laravel-vue-whoops'));
+
+new Vue({
 	el: '#app',
 	components: {
-		'Whoops': require('laravel-vue-whoops')
+		'myComponent': require('./components/myComponent.vue'),
+	},
+	data: function() {
+		return {}
 	}
 });
+
 ```
 
 ## How to use
@@ -45,10 +59,10 @@ var app = new Vue({
 The **Whoops.handle** method takes two parameters.
 
 #### Error
-The error handle object
+The error handle object parameter.
 
 #### Callback
-An optional callback handler fallback.
+An optional error callback handler fallback.
 If the error response is not an exception or dump then your callback should be your custom client facing UX handler, typically this would be your custom handler for laravel validation UX responses
 
 ```javascript
