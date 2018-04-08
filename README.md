@@ -6,9 +6,11 @@ Features live debug mode, iterate quickly through the debugging process of and a
 
 ## Installation
 
+	composer require marcnewton/laravel-whoops-vue-component
+
 ### Apps Layout blade
 
-Asuming that your project has retained the use of the original **layouts/app.blade.php** layout template, Add the following inside of the APP div tag as follows:
+Assuming that your project has retained the use of the original **layouts/app.blade.php** layout template, Add the following inside of the APP div tag as follows:
 
 ```php
 <div id="app">
