@@ -10,37 +10,26 @@ Features live debug mode, iterate quickly through the debugging process of and a
 
 	npm install laravel-vue-whoops
 
-### Apps Layout blade
-
-Assuming that your project has retained the use of the original **layouts/app.blade.php** layout template, Add the following inside of the APP div tag as follows:
-
-```php
-<div id="app">
-	<Whoops ref="Whoops"></Whoops>
-</div>
-```
-
 ### Import SCSS
 
 ```scss
 @import "~laravel-vue-whoops/sass/whoops";
 ```
 
-
 ### Adding Whoops VUE Component
 
-To register the Whoops component globally place the line below directly after where vue is imported ```import Vue from 'vue';```
+Add Whoops Vue component to your applications js file after Vue is declared.
 
 ```javascript
-Vue.component('Whoops', require('laravel-vue-whoops'));
+require('laravel-vue-whoops');
 ```
 
-Example:
+Example app.js:
 
 ```javascript
-import Vue from 'vue';
+window.Vue = require('vue');
 
-Vue.component('Whoops', require('laravel-vue-whoops'));
+require('laravel-vue-whoops');
 
 new Vue({
 	el: '#app',
@@ -62,19 +51,19 @@ The **Whoops.handle** method takes two parameters.
 The error handle object parameter.
 
 #### Callback
-An optional error callback handler fallback.
-If the error response is not an exception or dump then your callback should be your custom client facing UX handler, typically this would be your custom handler for laravel validation UX responses
+An optional custom error callback handler fallback.
+If the error response is not an exception or dump then your callback should be your custom client facing UX handler, typically this would be your custom handler for laravel validation UX responses or if APP DEBUG is disabled the custom callback would would called.
 
 ```javascript
 axios.patch(url,data).then(response => {
 
-		// your success action here
+		// your public success handler here
 
 	}).catch(error => {
 
-	instance.$refs.Whoops.handle(error, function() {
+		Whoops.handle(error, function() {
 
-		// your public facing fail action here
+		// your public fail handler here
 		alert('Hello Guest, Sorry but the server encountered an Internal Server Error during the processing your request!');
 
 	});

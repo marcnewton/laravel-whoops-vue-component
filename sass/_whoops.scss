@@ -1,4 +1,4 @@
-#whoops-window {
+#whoops-app {
 
 	display:none;
 	z-index:99999;
@@ -355,13 +355,13 @@
 	}
 }
 
-#app.whoops {
+body.whoops {
 
 	> * {
 
 		display:none !important;
 
-		&#whoops-window {
+		&#whoops-app {
 			display:flex !important;
 		}
 	}

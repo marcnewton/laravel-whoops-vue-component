@@ -1,6 +1,5 @@
 <template>
-	<div id="whoops-window">
-
+	<div>
 		<div class="whoops-header">
 			<div class="tools">
 				<span v-html="status" class="status"></span>
@@ -171,8 +170,7 @@
 					this.active = 'traces';
 					this.status = 'Error Exception Detected!';
 
-					let app = document.getElementById('app');
-					app.className += ' whoops';
+					document.body.className += ' whoops';
 
 					return true;
 				}
@@ -186,7 +184,7 @@
 					this.whoops.config = error.response.config;
 
 					let app = document.getElementById('app');
-					app.className += ' whoops';
+					document.body.className += ' whoops';
 
 					return true;
 				}
@@ -199,8 +197,7 @@
 
 			close() {
 
-				let app = document.getElementById('app');
-				app.className = app.className.replace(/ whoops/g,'');
+				document.body.className = app.className.replace(/ whoops/g,'');
 
 				this.reset();
 			},
