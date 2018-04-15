@@ -6,12 +6,6 @@
 
 	flex-direction:column;
 
-	position:fixed;
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-
 	font: 13px "Helvetica Neue", helvetica, arial, sans-serif;
 
 	h2 {
@@ -126,7 +120,6 @@
 			max-width:420px;
 
 			padding:7px;
-			overflow-y: auto;
 			background-color: #f7f7f7;
 
 			> div {
