@@ -1,3 +1,5 @@
+require('./app.scss');
+
 (function () {
 
 	window.onload = function() {
@@ -7,7 +9,7 @@
 		if(document.getElementById('whoops-app') === null) {
 
 			app = document.createElement('Whoops');
-			app.setAttribute('ref','Whoops')
+			app.setAttribute('ref','Whoops');
 
 			container = document.createElement('div');
 			container.setAttribute('id', 'whoops-app');

@@ -1,20 +1,18 @@
 ## About Vue Whoops Debug Component
 
-A Vue 2 ajax debug component for Laravel 5.5+, pretty print Whoops style handler for ajax error responses in Laravel, auto handle error exceptions and user die dump responses from ajax requests in a pretty print style display.
+Vue 2 ajax debug component for Laravel 5.5+, pretty print Whoops style handler for ajax error responses in Laravel, auto handles error exceptions and Die Dump responses from ajax requests in a reactive display.
 
-Features live debug mode, iterate quickly through the debugging process of and ajax error untill the issue is resolved, automatic retries of your ajax request with the posted data, on an eventual success response the debug screen will auto close and your optional callback function will be called.
+Features live debug mode for quick iteration through errors and dumps.
+
+On demand or automatic retries of your last ajax request with the previous posted data.
+
+Optional on success callback to resume any normal application function when request is free of errors or dump responses.
 
 [![Video Demo](https://img.youtube.com/vi/n0U5a4S3crQ/0.jpg)](https://youtu.be/n0U5a4S3crQ "Video Demo")
 
 ## Installation
 
 	npm install laravel-vue-whoops
-
-### Import SCSS
-
-```scss
-@import "~laravel-vue-whoops/sass/whoops";
-```
 
 ### Adding Whoops VUE Component
 
@@ -32,13 +30,13 @@ window.Vue = require('vue');
 require('laravel-vue-whoops');
 
 new Vue({
-	el: '#app',
-	components: {
-		'myComponent': require('./components/myComponent.vue'),
-	},
-	data: function() {
-		return {}
-	}
+  el: '#app',
+    components: {
+      'myComponent': require('./components/myComponent.vue'),
+    },
+    data: function() {
+      return {}
+    }
 });
 
 ```
@@ -57,16 +55,21 @@ If the error response is not an exception or dump then your callback should be y
 ```javascript
 axios.patch(url,data).then(response => {
 
-		// your public success handler here
+  // your public success handler here
 
-	}).catch(error => {
+}).catch(error => {
 
-		Whoops.handle(error, function() {
+  Whoops.handle(error, function() {
 
-		// your public fail handler here
-		alert('Hello Guest, Sorry but the server encountered an Internal Server Error during the processing your request!');
+    // your public fail handler here
+    alert('Hello Guest, Sorry but the server encountered an Internal Server Error during the processing your request!');
 
-	});
+  });
 
 });
 ```
+
+## Issue Tracking
+
+https://github.com/marcnewton/laravel-whoops-vue-component/issues
+
