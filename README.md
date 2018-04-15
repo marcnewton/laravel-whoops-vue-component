@@ -95,6 +95,6 @@ This callback function should be a response handler that you would want your end
 
 ## Support
 
-Twitter: [@MarcANewton](https://twitter.com/MarcANewton) #laravueoops
+Twitter: [@MarcANewton](https://twitter.com/MarcANewton) [#laravueoops](https://twitter.com/hashtag/laravueoops)
 
 Stack Overflow: [@marc-newton](https://stackoverflow.com/users/1356141/marc-newton)

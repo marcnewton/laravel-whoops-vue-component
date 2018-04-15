@@ -1,8 +1,8 @@
 {
   "name": "laravel-vue-whoops",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "A visualiser based on the Whoops error handler in Laravel for easy debugging of error exceptions and dumps for ajax calls using a VUE Component.",
-  "main": "dist/app.js",
+  "main": "src/app.js",
   "dependencies": {},
   "devDependencies": {
     "laravel-mix": ">2.0.0"
