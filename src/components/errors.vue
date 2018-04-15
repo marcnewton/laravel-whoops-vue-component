@@ -41,7 +41,7 @@
 					<span class="status" v-html="dump.status"></span>
 					&nbsp; | &nbsp;
 					<label for="whoops-tick-rate">Tick Rate</label>
-					<input id="whoops-tick-rate" v-model="dump.tick" type="number" value="10" min="5" max="120" step="1" :disabled="dump.enabled" />
+					<input id="whoops-tick-rate" v-model="dump.tick" type="number" value="10" min="3" max="120" step="0.5" :disabled="dump.enabled" />
 					<button v-if="dump.enabled" v-on:click="debug(false)" class="debug-pause">Pause Debug</button>
 					<button v-if="!dump.enabled" v-on:click="debug(true)" class="debug-start">Start Debug</button>
 				</div>
@@ -111,7 +111,7 @@
 				dump: {
 					status: '',
 					enabled: false,
-					tick: 7,
+					tick: 5,
 					response: null,
 					interval: null
 				},
@@ -119,7 +119,8 @@
 				status: '',
 				active: 'traces',
 				calls: 1,
-				callback: {}
+				onDebug: null,
+				onSuccess: null
 			};
 		},
 
@@ -151,22 +152,40 @@
 
 				this.status = '';
 				this.calls = 1;
+				this.onDebug = null;
+				this.onSuccess = null;
 
 			},
 
-			handle(error,callback) {
+			handle(error,onDebug,onSuccess) {
 
 				this.reset();
-				this.callback = callback;
+
+				if(typeof onDebug === "function") {
+					this.onDebug = onDebug;
+				}
+
+				if(typeof onSuccess === "function") {
+					this.onSuccess = onSuccess;
+				}
+
 				this.responded(error);
 
 			},
 
-			responded(error) {
+			responded(packet) {
 
-				if(error.response.exception || (error.response.data && error.response.data.exception))
+				if(typeof packet.status !== "undefined" && packet.status < 300)
 				{
-					this.whoops = error.response;
+					this.close();
+				}
+
+				if(typeof packet.response.status !== "undefined" && packet.response.status >= 500)
+				{
+
+					if(typeof packet.response.exception !== "undefined" || typeof packet.response.data.exception !== "undefined")
+					{
+						this.whoops = packet.response;
 					this.active = 'traces';
 					this.status = 'Error Exception Detected!';
 
@@ -175,29 +194,29 @@
 					return true;
 				}
 
-				if(error.response.status >= 500)
-				{
-					this.dump.response = error.response.data;
+					this.dump.response = packet.response.data;
 					this.active = 'debug';
 					this.status = 'Debug Dump Detected!';
 
-					this.whoops.config = error.response.config;
+					this.whoops.config = packet.response.config;
 
-					let app = document.getElementById('app');
 					document.body.className += ' whoops';
 
 					return true;
 				}
 
+				if(typeof this.onDebug === "function") {
+					this.onDebug(packet);
+				}
+
 				this.close();
-				this.callback();
 
 				return false;
 			},
 
 			close() {
 
-				document.body.className = app.className.replace(/ whoops/g,'');
+				document.body.className = document.body.className.replace(/ whoops/g,'');
 
 				this.reset();
 			},
@@ -251,7 +270,11 @@
 
 				axios[instance.whoops.config.method](instance.whoops.config.url, JSON.parse(instance.whoops.config.data)).then(response => {
 
-					instance.callback(response);
+					if(typeof instance.onSuccess === "function") {
+						instance.onSuccess(response);
+					}
+
+					instance.close();
 
 				}).catch(error => {
 
