@@ -178,6 +178,7 @@
 				if(typeof packet.status !== "undefined" && packet.status < 300)
 				{
 					this.close();
+					return false;
 				}
 
 				if(typeof packet.response.status !== "undefined" && packet.response.status >= 500)
